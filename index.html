@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ADITYA.DEV | AI Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#292935",
+                    "primary-container": "#b76dff",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#ddb7ff",
+                    "primary-fixed": "#f0dbff",
+                    "inverse-surface": "#e3e0f1",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#b0b2ff",
+                    "outline-variant": "#4d4354",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#c0c1ff",
+                    "tertiary-fixed-dim": "#ffb0cd",
+                    "inverse-primary": "#842bd2",
+                    "surface-container-highest": "#343440",
+                    "surface-bright": "#383845",
+                    "on-background": "#e3e0f1",
+                    "on-tertiary-fixed": "#3e0022",
+                    "primary-fixed-dim": "#ddb7ff",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#2c0051",
+                    "on-secondary-fixed": "#07006c",
+                    "tertiary": "#ffb0cd",
+                    "surface": "#12121d",
+                    "secondary": "#c0c1ff",
+                    "on-primary": "#490080",
+                    "surface-container-low": "#1b1a26",
+                    "background": "#12121d",
+                    "on-secondary-fixed-variant": "#2f2ebe",
+                    "on-primary-container": "#400071",
+                    "secondary-fixed": "#e1e0ff",
+                    "tertiary-fixed": "#ffd9e4",
+                    "surface-variant": "#343440",
+                    "surface-container": "#1f1e2a",
+                    "surface-tint": "#ddb7ff",
+                    "outline": "#988d9f",
+                    "on-tertiary-fixed-variant": "#8c0053",
+                    "surface-dim": "#12121d",
+                    "on-tertiary-container": "#570032",
+                    "on-surface-variant": "#cfc2d6",
+                    "on-primary-fixed-variant": "#6900b3",
+                    "secondary-container": "#3131c0",
+                    "on-surface": "#e3e0f1",
+                    "tertiary-container": "#f751a1",
+                    "inverse-on-surface": "#302f3b",
+                    "on-tertiary": "#640039",
+                    "surface-container-lowest": "#0d0d18",
+                    "on-secondary": "#1000a9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "unit": "4px",
+                    "margin-page": "64px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "stack-sm": "8px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "code-sm": ["monospace"],
+                    "body-md": ["Manrope"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-xl": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0d0d18;
+            color: #e3e0f1;
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%; /* Slightly taller for parallax */
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(132, 43, 210, 0.05) 0%, transparent 80%);
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+        .scroll-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #842bd2, #b76dff);
+            box-shadow: 0 0 10px rgba(183, 109, 255, 0.6);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease;
+            transform-style: preserve-3d;
+        }
+        .glass-card:hover {
+            border-color: rgba(183, 109, 255, 0.5);
+            box-shadow: 0 10px 40px rgba(183, 109, 255, 0.15);
+        }
+        .glass-card.in-view {
+            border-color: rgba(183, 109, 255, 0.3);
+            box-shadow: 0 0 20px rgba(183, 109, 255, 0.1);
+            transform: scale(1.02);
+        }
+        .neon-text {
+            text-shadow: 0 0 15px rgba(183, 109, 255, 0.6);
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #842bd2, #b76dff);
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.reveal-left {
+            transform: translateX(-40px);
+        }
+        .reveal.reveal-right {
+            transform: translateX(40px);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        .pulse-hover:hover {
+            animation: neon-pulse 1.5s infinite;
+        }
+        @keyframes neon-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(183, 109, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(183, 109, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(183, 109, 255, 0); }
+        }
+        .typing-container::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #0d0d18;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
+        .loader-neural {
+            width: 80px;
+            height: 80px;
+            border: 3px solid transparent;
+            border-top-color: #b76dff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .nav-link.active {
+            color: #ddb7ff;
+        }
+        .nav-link.active span {
+            width: 100%;
+        }
+        @keyframes dot-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(183, 109, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(183, 109, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(183, 109, 255, 0); }
+        }
+        .timeline-dot-pulse {
+            animation: dot-pulse 2s infinite;
+        }
+        .experience-row:hover .timeline-line {
+            border-color: rgba(183, 109, 255, 0.4);
+        }
+        .experience-row:hover .timeline-dot {
+            transform: scale(1.3);
+            background-color: #ddb7ff;
+            box-shadow: 0 0 20px #b76dff;
+        }
+        /* Animated Background Orbs */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -2;
+            animation: float-orb 20s infinite ease-in-out alternate;
+            opacity: 0.5;
+        }
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: rgba(183, 109, 255, 0.15); /* Primary */
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 800px;
+            height: 800px;
+            background: rgba(255, 176, 205, 0.15); /* Pinkish */
+            bottom: -200px;
+            right: -100px;
+            animation-delay: -5s;
+            animation-duration: 25s;
+        }
+        .orb-3 {
+            width: 500px;
+            height: 500px;
+            background: rgba(132, 43, 210, 0.15); /* Deep purple */
+            top: 40%;
+            left: 30%;
+            animation-delay: -10s;
+            animation-duration: 30s;
+        }
+
+        @keyframes float-orb {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 100px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+    </style></head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<div id="preloader">
+<div class="loader-neural"></div>
+</div>
+<!-- Animated Orbs -->
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+<div class="bg-orb orb-3"></div>
+<!-- Scroll Progress -->
+<div class="scroll-progress-container">
+<div class="scroll-progress-bar" id="scrollProgress"></div>
+</div>
+<div id="particles-js"></div>
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-12 py-5 max-w-[1920px] mx-auto bg-[#0d0d18]/80 backdrop-blur-[30px] border-b border-white/5 font-['Space_Grotesk'] tracking-tight text-slate-100">
+<a class="text-2xl font-black tracking-tighter text-white uppercase cursor-pointer hover:text-primary transition-colors duration-300" href="#hero">ADITYA.DEV</a>
+<nav class="hidden md:flex items-center gap-8" id="main-nav">
+<a class="text-slate-400 font-medium hover:text-primary transition-colors relative group nav-link" href="#about">
+            About
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-slate-400 font-medium hover:text-primary transition-colors relative group nav-link" href="#certificates">
+            Certificates
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-slate-400 font-medium hover:text-primary transition-colors relative group nav-link" href="#experience">
+            Experience
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-slate-400 font-medium hover:text-primary transition-colors relative group nav-link" href="#skills">
+            Skills
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-slate-400 font-medium hover:text-primary transition-colors relative group nav-link" href="#projects">
+            Projects
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="text-slate-400 font-medium hover:text-primary transition-colors relative group nav-link" href="#contact">
+            Contact
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+</a>
+</nav>
+<a href="./AdityaResume.pdf" target="_blank" class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_20px_rgba(183,109,255,0.2)] hover:shadow-[0_0_30px_rgba(183,109,255,0.4)] block text-center">Resume</a>
+</header>
+<main class="mt-24 px-8 md:px-16 lg:px-32 relative z-10">
+<!-- Hero Section -->
+<section class="min-h-[85vh] flex flex-col lg:flex-row items-center justify-between py-24 gap-16 relative" id="hero">
+<!-- Decorative Background Glow -->
+<div class="absolute top-20 left-0 w-[500px] h-[500px] bg-primary-container/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+<div class="flex-1 space-y-8 relative z-10 w-full">
+
+
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary reveal" style="transition-delay: 50ms;">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-caps tracking-widest uppercase text-sm">Mumbai, India</span>
+</div>
+
+<h1 class="font-display-xl text-[64px] md:text-[80px] lg:text-[96px] leading-[1.1] font-bold tracking-tighter reveal" style="transition-delay: 100ms;">
+Hi, I'm Aditya <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-primary to-[#ffb0cd] neon-text">Devadiga</span>
+</h1>
+</div>
+
+<div class="h-12 overflow-hidden reveal" style="transition-delay: 200ms">
+<p class="font-headline-md text-primary-fixed-dim text-2xl md:text-3xl font-mono typing-container" id="typing-text"></p>
+</div>
+
+<p class="max-w-xl text-lg md:text-xl text-on-surface-variant leading-relaxed reveal font-light" style="transition-delay: 300ms">
+    I am a data professional focused on building practical AI solutions. I work with Large Language Models, RAG systems, and predictive analytics to solve real-world business problems.
+</p>
+
+<div class="flex flex-wrap gap-5 pt-4 reveal" style="transition-delay: 400ms">
+<a class="bg-gradient-to-r from-primary-container to-primary text-on-primary-container px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:scale-[1.03] active:scale-95 transition-all shadow-[0_0_20px_rgba(183,109,255,0.4)] hover:shadow-[0_0_30px_rgba(183,109,255,0.6)] group" href="#projects">
+        View Projects 
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="border border-white/20 bg-white/5 backdrop-blur-md text-on-surface px-8 py-4 rounded-xl font-bold hover:bg-white/10 hover:border-primary-container transition-all group flex items-center gap-3" href="#contact">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">mail</span>
+        Contact Me
+    </a>
+</div>
+
+
+</div>
+
+<div class="relative w-full max-w-[400px] md:max-w-[500px] lg:max-w-[550px] aspect-square reveal mt-12 lg:mt-0" style="transition-delay: 200ms">
+<!-- Rotating glowing background -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container/20 to-[#ffb0cd]/20 rounded-full blur-[80px] animate-pulse"></div>
+
+<!-- Floating Elements -->
+<div class="absolute -top-6 -right-6 w-20 h-20 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center shadow-2xl animate-[bounce_4s_infinite] z-20" data-tilt>
+    <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div class="absolute top-1/2 -left-10 w-16 h-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center shadow-2xl animate-[bounce_5s_infinite_0.5s] z-20" data-tilt>
+    <span class="material-symbols-outlined text-3xl text-[#ffb0cd]" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+</div>
+<div class="absolute -bottom-4 right-10 w-24 h-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center shadow-2xl animate-[bounce_6s_infinite_1s] z-20 gap-2 px-4" data-tilt>
+    <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+    <span class="text-xs font-bold text-white tracking-widest uppercase">Python</span>
+</div>
+
+<!-- Main Image Container -->
+<div class="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/10 glass-card shadow-2xl z-10" data-tilt="" data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+<img alt="Aditya Devadiga" class="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100" src="./profile2.jpg"/>
+<!-- Inner Shadow/Overlay -->
+<div class="absolute inset-0 rounded-[2.5rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- About/Education -->
+<section class="py-section-gap reveal" id="about">
+<h2 class="font-headline-lg text-headline-lg mb-12 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container">school</span> Education
+        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-card p-10 rounded-2xl flex gap-6 group reveal reveal-left" data-tilt="">
+<div class="text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div class="">
+<span class="text-primary font-label-caps mb-2 block">Sep 2022 — Jul 2025 | CGPA: 7.05</span>
+<h3 class="text-2xl font-headline-md mb-2">B.Sc. in Data Science</h3>
+<p class="text-on-surface-variant">Bunts Sangha's S.M Shetty College Of Science, Commerce &amp; Management Studies – Powai, Mumbai</p>
+</div>
+</div>
+<div class="glass-card p-10 rounded-2xl flex gap-6 group reveal reveal-right" data-tilt="">
+<div class="text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<div class="">
+<span class="text-primary font-label-caps mb-2 block">Aug 2020 — Mar 2022 | Marks: 59.17%</span>
+<h3 class="text-2xl font-headline-md mb-2">HSC - Commerce</h3>
+<p class="text-on-surface-variant">Bunts Sangha's S.M Shetty High School &amp; Junior College – Powai, Mumbai</p>
+</div>
+</div>
+<div class="glass-card p-10 rounded-2xl flex gap-6 group reveal reveal-left md:col-span-2" data-tilt="">
+<div class="text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+<div class="">
+<span class="text-primary font-label-caps mb-2 block">Jul 2019 — Mar 2020 | Marks: 60.20%</span>
+<h3 class="text-2xl font-headline-md mb-2">Secondary Education</h3>
+<p class="text-on-surface-variant">St. Francis High School – Malad, Mumbai</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Certificates Section -->
+<section class="py-section-gap reveal" id="certificates">
+<h2 class="font-headline-lg text-headline-lg mb-12 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container">verified</span> Certificates
+        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-card p-10 rounded-2xl flex flex-col gap-6 group reveal reveal-left" data-tilt="">
+<div class="flex items-start justify-between">
+<div class="text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<span class="text-primary font-label-caps py-1 px-3 bg-primary/10 rounded-full border border-primary/20">Aug 2022 — Oct 2022</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline-md mb-2">Supervised Machine Learning: Regression and Classification</h3>
+<p class="text-sm text-on-surface-variant mb-2">DeepLearning.AI &amp; Stanford Online – Coursera</p>
+<a href="https://coursera.org/verify/UCLFT7QETK9Y" target="_blank" class="text-xs text-primary-container hover:text-primary hover:underline flex items-center gap-1 mb-4 w-fit">
+    <span class="material-symbols-outlined text-[14px]">link</span> Verify Certificate
+</a>
+<div class="mt-4">
+<p class="text-sm font-bold text-on-surface mb-2 uppercase tracking-widest">Key Skills Mastered:</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-[10px] font-medium text-primary">Supervised Learning</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-[10px] font-medium text-primary">Regression</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-[10px] font-medium text-primary">Classification</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-[10px] font-medium text-primary">Python</span>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-2xl flex flex-col gap-6 group reveal reveal-right" data-tilt="">
+<div class="flex items-start justify-between">
+<div class="text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">robot_2</span>
+</div>
+<span class="text-primary font-label-caps py-1 px-3 bg-primary/10 rounded-full border border-primary/20">Aug 2022 — Oct 2022</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline-md mb-2">Robotic Process Automation (RPA)</h3>
+<div class="mt-4">
+<p class="text-sm font-bold text-on-surface mb-2 uppercase tracking-widest">Achievements:</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="text-primary-container material-symbols-outlined text-sm leading-none pt-1">check_circle</span> Implemented end-to-end RPA solutions</li>
+<li class="flex gap-2"><span class="text-primary-container material-symbols-outlined text-sm leading-none pt-1">check_circle</span> Automated high-volume repetitive tasks</li>
+<li class="flex gap-2"><span class="text-primary-container material-symbols-outlined text-sm leading-none pt-1">check_circle</span> Improved operational efficiency and accuracy</li>
+<li class="flex gap-2"><span class="text-primary-container material-symbols-outlined text-sm leading-none pt-1">check_circle</span> Reduced manual data entry errors significantly</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience -->
+<section class="py-section-gap reveal" id="experience">
+<h2 class="font-headline-lg text-headline-lg mb-12 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container">work_history</span> Experience
+        </h2>
+<div class="relative pl-12 border-l border-white/10 space-y-16 timeline-line transition-colors duration-500">
+<!-- Exp 1 -->
+<div class="relative reveal experience-row group" style="transition-delay: 100ms">
+<div class="absolute -left-[54px] top-0 w-3 h-3 bg-primary-container rounded-full ring-4 ring-primary-container/20 shadow-[0_0_15px_#b76dff] timeline-dot timeline-dot-pulse transition-all duration-300"></div>
+<div class="glass-card p-8 rounded-2xl max-w-4xl hover:border-primary-container/50" data-tilt="">
+<span class="text-primary-container font-label-caps">May 2025 – Aug 2025 | Bengaluru, India</span>
+<h3 class="text-2xl font-bold mt-2">Data Analyst Intern</h3>
+<p class="text-xl text-on-surface mb-4">Infotact Solutions</p>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex gap-2"><span class="text-primary-container">•</span> Data collection, cleaning, and exploratory data analysis</li>
+<li class="flex gap-2"><span class="text-primary-container">•</span> Automation of reporting workflows</li>
+<li class="flex gap-2"><span class="text-primary-container">•</span> Dashboard creation using Power BI and Tableau</li>
+</ul>
+</div>
+</div>
+<!-- Exp 2 -->
+<div class="relative reveal experience-row group" style="transition-delay: 200ms">
+<div class="absolute -left-[54px] top-0 w-3 h-3 bg-surface-container rounded-full ring-4 ring-white/5 timeline-dot transition-all duration-300"></div>
+<div class="glass-card p-8 rounded-2xl max-w-4xl hover:border-primary-container/30" data-tilt="">
+<span class="text-slate-500 font-label-caps">Sep 2025 – Dec 2025 | Remote</span>
+<h3 class="text-2xl font-bold mt-2">Data Analyst Intern</h3>
+<p class="text-xl text-on-surface mb-4">To-Let Globe</p>
+<ul class="space-y-3 text-on-surface-variant">
+<li class="flex gap-2"><span class="text-primary-container">•</span> Data analysis and visualization for business insights</li>
+<li class="flex gap-2"><span class="text-primary-container">•</span> Reporting and insight generation for stakeholders</li>
+<li class="flex gap-2"><span class="text-primary-container">•</span> Collaboration with product teams</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills -->
+<section class="py-section-gap reveal" id="skills">
+<h2 class="font-headline-lg text-headline-lg mb-12">Technical Skills</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Programming Languages -->
+<div class="glass-card p-8 rounded-2xl reveal" data-tilt="">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">code</span> Programming Languages
+    </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Python</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">R</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">SQL</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">JavaScript</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">HTML</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">CSS</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">RPA</span>
+</div>
+</div>
+<!-- Databases -->
+<div class="glass-card p-8 rounded-2xl reveal" data-tilt="">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">database</span> Databases
+    </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">MySQL</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">MongoDB</span></div>
+</div>
+<!-- Frameworks and Libraries -->
+<div class="glass-card p-8 rounded-2xl reveal" data-tilt="">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">library_books</span> Frameworks &amp; Libraries
+    </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">NumPy</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Pandas</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Matplotlib</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Streamlit</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Django</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Scikit-learn</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">React.js</span></div>
+</div>
+<!-- Machine Learning -->
+<div class="glass-card p-8 rounded-2xl reveal" data-tilt="">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">psychology</span> Machine Learning
+    </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Linear/Logistic Regression</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Decision Trees</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Random Forest</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">LLM</span>
+</div>
+</div>
+<!-- Tools & Platforms -->
+<div class="glass-card p-8 rounded-2xl reveal" data-tilt="">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">build</span> Tools &amp; Platforms
+    </h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Advanced Excel</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Jupyter Notebook</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Github</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">VS Code</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Google Colab</span>
+<span class="px-3 py-1 bg-white/5 border border-primary/20 rounded-full text-xs font-medium hover:bg-primary/20 hover:border-primary transition-all cursor-default">Power BI</span>
+</div>
+</div></div>
+</section>
+<!-- Featured AI Projects -->
+<section class="py-section-gap reveal" id="projects">
+<h2 class="font-headline-lg text-headline-lg mb-12">AI Projects</h2>
+<div class="flex flex-col gap-16 relative w-full max-w-5xl mx-auto pb-32">
+<!-- Project 1 -->
+<div class="glass-card group overflow-hidden rounded-3xl sticky top-32 z-[1] shadow-2xl transition-all duration-500 hover:scale-[1.02] border border-white/10 bg-[#0d0d18]/90 backdrop-blur-2xl">
+<div class="h-64 relative overflow-hidden">
+<img alt="LLM Tool Calling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-wYVqzVKRNEQWes8lOpE_Jjk-bcPpbzLcUWZ56AVVZWbW-3znB-wHwVFBrco8l5sWmW2LXmqF9Yp4xFYQVua81xhVxJtsluQuvxjfzZ6xV-iQ1C_7i-4KiafDRbcMQ9c6Wwth6d42UxkOLeI2XagWCgn022qwzYCQMlr94DaXlLIMnBCExA7_OWFLZL3LaY_-BJjGDcPYFuNiHQf9rrHTMOkjW_CD38jqlyWw5nucItBTlg-4f_b8mVm1YDRboNgo3TG4_ZSMMpwU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="text-3xl font-bold group-hover:text-primary transition-colors">Chat with PDF (LLM Project)</h3>
+<p class="text-on-surface-variant text-base leading-relaxed">Built an AI system to extract and answer questions from PDFs using LLMs and RAG architecture. Implemented document parsing, embeddings, and semantic search.</p>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Python</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">LangChain</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">OpenAI API</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">FAISS</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">NLP</span></div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-card group overflow-hidden rounded-3xl sticky top-40 z-[2] shadow-2xl transition-all duration-500 hover:scale-[1.02] border border-white/10 bg-[#0d0d18]/95 backdrop-blur-2xl">
+<div class="h-64 relative overflow-hidden">
+<img alt="Multi-Agent LLM" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArHD58tbrwskRQC6iHOO_Zo7B1WqWlgX7pJ1jLfUZCVgyAmZDZXDJnuD0ljK_vQDGaEdX8VQfKBzt-QqA8eFwQ2_LAjPjURv--tIKlYWMtQu-FmfP_nd436WnW7Z4hEC278a_1DECcZIRGPVX5X4zvKmdmOuITBNyDzTwbdJkgZBcjWZzoF-iFIBrkNFsNyBVM3a8SF5hwW1A8ckIU-3HpFnWR33NJ9eauGKHL0adVzk_rFeawOaXyVfWqwC245Zx42yRziGUl35y2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="text-3xl font-bold group-hover:text-primary transition-colors">Toxic Comment Classification</h3>
+<p class="text-on-surface-variant text-base leading-relaxed">Built a machine learning model to detect toxic comments using NLP techniques. Performed preprocessing, feature extraction, and model evaluation.</p>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Python</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Scikit-learn</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">NLP</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Pandas</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Machine Learning</span></div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-card group overflow-hidden rounded-3xl sticky top-48 z-[3] shadow-2xl transition-all duration-500 hover:scale-[1.02] border border-white/10 bg-[#0d0d18] backdrop-blur-2xl">
+<div class="h-64 relative overflow-hidden">
+<img alt="Enterprise RAG" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQ1bl5AOSMi0ZjiktCexDZ2h8bhWaT4APmzvZs1BX2njKs3tirft2xDFuyxdx3H2IRtr1JIXwuirVvYhmVFZIlgedBwRh8V9P5c1GqNz1FJxqI1mJ2LA1fiYXWdBGOVlTT1VCz8sCAZsEIGg1sORWHcepkdPW_zDydz-yJNpSBTSLIbYO83SPcGeavrBl2e466CrlutI8bltzJ6N5FwJmOFUT-FJ4gNrk7lsOxhAUQFyNl9YjBrauOT9RM5qoGQehq-tSX8PPEux_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="p-8 space-y-4">
+<h3 class="text-3xl font-bold group-hover:text-primary transition-colors">AI Resume Builder</h3>
+<p class="text-on-surface-variant text-base leading-relaxed">Developed a web-based resume builder with AI-generated content and live preview. Integrated backend APIs for dynamic resume generation.</p>
+<div class="flex flex-wrap gap-2"><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">React.js</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Next.js</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Node.js</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">Tailwind CSS</span><span class="px-3 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold tracking-widest text-primary border border-primary/20 uppercase">OpenAI API</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Viz Section -->
+<section class="py-section-gap reveal" id="viz">
+<h2 class="font-headline-lg text-headline-lg mb-12">Data Visualization Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="glass-card p-8 rounded-3xl flex flex-col gap-4 group reveal reveal-left" data-tilt="" style="transition-delay: 100ms">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">car_crash</span>
+</div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Road Accident Analysis</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Analyzed large-scale road accident datasets using Python (Pandas, NumPy) and SQL to identify key risk factors and accident patterns. Performed data cleaning, preprocessing, and exploratory data analysis (EDA). Built interactive dashboards in Power BI to visualize trends by location, time, weather, and vehicle type, enabling data-driven insights for road safety improvements.</p>
+</div>
+<!-- Project 2 -->
+<div class="glass-card p-8 rounded-3xl flex flex-col gap-4 group reveal" data-tilt="" style="transition-delay: 200ms">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Stock Market Insights</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Collected and analyzed stock market data using Python (Pandas, Matplotlib, Seaborn) and SQL queries. Performed time-series analysis to identify trends, volatility, and price patterns. Developed visual dashboards in Power BI to track stock performance and key financial metrics, supporting better investment decision-making.</p>
+</div>
+<!-- Project 3 -->
+<div class="glass-card p-8 rounded-3xl flex flex-col gap-4 group reveal reveal-right" data-tilt="" style="transition-delay: 300ms">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">bar_chart</span>
+</div>
+<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Chocolate Sales Analysis</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Processed and analyzed sales data using Python (Pandas) and SQL to uncover revenue trends and customer behavior. Conducted data cleaning, aggregation, and KPI analysis (sales, profit, top products). Built Power BI dashboards with interactive visualizations to monitor performance, identify seasonal trends, and optimize sales strategy.</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap reveal" id="contact">
+<div class="glass-card p-12 rounded-[40px] flex flex-col md:flex-row gap-16 reveal" data-tilt="" data-tilt-max="2">
+<div class="flex-1 space-y-8">
+<h2 class="font-display-xl text-5xl leading-tight">Let’s turn data into decisions.</h2>
+<div class="space-y-4">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+<div class="space-y-4">
+<a href="mailto:adityadevadiga2003@gmail.com" class="flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<span class="text-lg group-hover:text-primary transition-colors">adityadevadiga2003@gmail.com</span>
+</a>
+<div class="flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<span class="text-lg group-hover:text-primary transition-colors">Mumbai, MH - India</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<a class="flex items-center gap-4 group" href="https://www.linkedin.com/in/aditya-devadiga/" target="_blank">
+<div class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary group-hover:text-white group-hover:shadow-[0_0_15px_#b76dff] transition-all">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+</div>
+<span class="text-lg group-hover:text-primary transition-colors">LinkedIn Profile</span>
+</a>
+<a class="flex items-center gap-4 group" href="https://github.com/ADITYA2003-afk" target="_blank">
+<div class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-primary group-hover:text-white group-hover:shadow-[0_0_15px_#b76dff] transition-all">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+</svg>
+</div>
+<span class="text-lg group-hover:text-primary transition-colors">GitHub Profile</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script>
+    // Loading Animation
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('preloader');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        }, 800);
+    });
+
+    // Particles JS Background
+    // Particles JS Background - Modernized Starry Field
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 120, "density": { "enable": true, "value_area": 1000 } },
+            "color": { "value": ["#b76dff", "#ffb0cd", "#ffffff"] },
+            "shape": { "type": "circle" },
+            "opacity": { 
+                "value": 0.6, 
+                "random": true,
+                "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+            },
+            "size": { 
+                "value": 3, 
+                "random": true,
+                "anim": { "enable": true, "speed": 2, "size_min": 0.1, "sync": false }
+            },
+            "line_linked": { "enable": false }, // Disabled lines for a cleaner look
+            "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 0.8, "speed": 3 }, "push": { "particles_nb": 4 } }
+        },
+        "retina_detect": true
+    });
+
+    // Parallax effect for particles
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const particles = document.getElementById('particles-js');
+        particles.style.transform = `translateY(${scrolled * 0.15}px)`;
+        
+        // Update Scroll Progress Bar
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolledPercent = (winScroll / height) * 100;
+        document.getElementById("scrollProgress").style.width = scrolledPercent + "%";
+    });
+
+    // Vanilla Tilt
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+        max: 8,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.1,
+    });
+
+    // Intersection Observer for Section Reveals
+    const observerOptions = {
+        threshold: 0.15
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                if (entry.target.classList.contains('glass-card')) {
+                    entry.target.classList.add('in-view');
+                }
+            } else {
+                entry.target.classList.remove('active');
+                if (entry.target.classList.contains('glass-card')) {
+                    entry.target.classList.remove('in-view');
+                }
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .glass-card, section').forEach(el => {
+        sectionObserver.observe(el);
+    });
+
+    // Navigation Active Link Observer
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('section[id]').forEach(section => {
+        navObserver.observe(section);
+    });
+
+    // Typing Animation
+    const typingText = document.getElementById('typing-text');
+    const professions = ["AI Engineer", "Machine Learning Engineer", "Python Developer"];
+    let profIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function type() {
+        if (!typingText) return;
+        const currentProf = professions[profIndex];
+        if (isDeleting) {
+            typingText.textContent = currentProf.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 50;
+        } else {
+            typingText.textContent = currentProf.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentProf.length) {
+            isDeleting = true;
+            typeSpeed = 2000;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            profIndex = (profIndex + 1) % professions.length;
+            typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+    type();
+
+    // Smooth scroll behavior
+    document.querySelectorAll('.nav-link, a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 100;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }
+        });
+    });
+</script>
+</body></html>
